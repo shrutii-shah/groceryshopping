@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+ <!--banner-->
+<div class="banner-top">
+	<div class="container">
+		<h3 >Billing</h3>
+		<h4><a href="index.html">Home</a><label>/</label>Billing</h4>
+		<div class="clearfix"> </div>
+	</div>
+</div>
+
+<!-- contact -->
+<div class="contact">
+	<div class="container">
+		<div class="spec ">
+			<h3>Billing Address</h3>
+				<div class="ser-t">
+					<b></b>
+					<span><i></i></span>
+					<b class="line"></b>
+				</div>
+		</div>
+		<div class=" contact-w3">	
+				
+					
+					
+					<div id="container">
+					
+
+
+							<div class="resp-tabs-container hor_1">
+						<div>		
+                           	<form class="resp-tabs-container hor_1" method="POST">
+											{% csrf_token %}
+											<input type="text" value="Name" name="name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+											<input type="text" value="Lname" name="lname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+											<input type="email" value="Email" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+											<input type="text" value="Phone" name="phone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+											<input type="text" value="Country" name="country" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+											<input type="text" value="City" name="city" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+											<textarea name="message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
+											<!-- <input type="submit" value="Submit" > -->
+											<a href="/payment/" class="btn btn-primary btn-success"><span class="glyphicon glyphicon-ok"></span> Submit</a>
+										</form>
+								</div>
+							</div>
+                                      
+                                
+</div>
+</div>
+</div>
+</div>
+
+{% endblock%}

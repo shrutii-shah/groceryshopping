@@ -164,4 +164,109 @@ class CartView(BaseView):
 
 
 
+def contact(request):
+	views = {}
+	views['information'] = Information.objects.all()
+	if request.method == 'POST':
+		na = request.POST['name']
+		em = request.POST['email']
+		sub = request.POST['subject']
+		mes = request.POST['message']
+
+		data = Contact.objects.create(
+			name = na,
+			email = em,
+			subject = sub,
+			message = mes
+			)
+		data.save()
+	return render(request,'contact.html',views)
+
+class codesView(BaseView):
+	def get(self,request):
+
+		return render(request,"codes.html",self.views)
+
+
+class aboutView(BaseView):
+	def get(self,request):
+
+		return render(request,"about.html",self.views)
+
+
+class kitchenView(HomeView):
+	def get(self,request):
+
+		return render(request,"kitchen.html",self.views)
+
+
+class householdView(HomeView):
+	def get(self,request):
+
+		return render(request,"hold.html",self.views)
+
+
+class personalcareView(HomeView):
+	def get(self,request):
+
+		return render(request,"care.html",self.views)
+
+class shippingView(HomeView):
+	def get(self,request):
+
+		return render(request,"shipping.html",self.views)
+
+class termsView(HomeView):
+	def get(self,request):
+
+		return render(request,"terms.html",self.views)
+
+class faqsView(HomeView):
+	def get(self,request):
+
+		return render(request,"faqs.html",self.views)
+
+def checkoutView(request):
+	views = {}
+	views['checkoutinfo'] = CheckoutInfo.objects.all()
+	if request.method == 'POST':
+		na = request.POST['name']
+		lna = request.POST['lname']
+		em = request.POST['email']
+		ph = request.POST['phone']
+		mes = request.POST['message']
+		coun = request.POST['country']
+		city = request.POST['city']
+
+		data = CheckoutInfo.objects.create(
+			name = na,
+			lname = lna,
+			email = em,
+			phone = ph,
+			message = mes,
+			country = coun,
+			city = city
+			)
+		data.save()
+	return render(request,'checkout.html',views)
+
+
+class paymentView(HomeView):
+	def get(self,request):
+		self.views['products'] = Product.objects.all()
+
+		return render(request,"payment.html",self.views)
+
+
+
+
+# -----------------------------API--------------------------------------
+
+from rest_framework import serializers, viewsets
+from .serializers import *
+
+
+
+
+
 
